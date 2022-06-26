@@ -3,7 +3,7 @@ import Header from "./components/Header";
 function App() {
     return (
         <>
-            <Header text='sdsd'/>
+            <Header text='header text'/>
 
             <div className="container">
                 <h1>App</h1> 
