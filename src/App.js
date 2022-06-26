@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import FeedBackItem from './components/FeedBackItem'
 
 function App() {
     return (
@@ -6,7 +7,7 @@ function App() {
             <Header text='header text'/>
 
             <div className="container">
-                <h1>App</h1> 
+                <FeedBackItem/>
             </div>
         </>
     )
