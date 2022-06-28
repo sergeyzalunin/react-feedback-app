@@ -34,7 +34,8 @@ function FeedBackForm({ handleAdd }) {
             }
 
             handleAdd(newFeedBack)
-
+            
+            setRating(0)
             setText('')
         }
     }
