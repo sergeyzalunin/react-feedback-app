@@ -39,7 +39,7 @@ function App() {
                     </Route>
 
                     <Route exact path='/about' element={<AboutPage />} />
-                    <Route exact path='/post/:id/:name' element={<Post />} />
+                    <Route exact path='/post/*' element={<Post />} />
                 </Routes>
                 
                 <AboutIconLink />
