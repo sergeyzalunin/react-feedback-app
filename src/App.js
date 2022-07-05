@@ -1,13 +1,14 @@
 import { v4 as uuidv4 } from 'uuid'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
- import Header from "./components/Header"
+import Header from "./components/Header"
 import FeedBackList from './components/FeedBackList'
 import FeedBackData from './data/FeedBackData'
 import FeedBackStats from './components/FeedBackStats'
 import FeedBackForm from './components/FeedBackForm';
 import AboutPage from './pages/AboutPage'
 import AboutIconLink from './components/AboutIconLink'
+import { FeedBackProvider } from './context/FeedBackContext'
 
 function App() {
     const [feedback, setFeedback] = useState(FeedBackData)
@@ -24,26 +25,28 @@ function App() {
     }
 
     return (
-        <Router>
-            <Header />
-            <div className="container">
-                <Routes>                    
-                    <Route exact path='/' element={
-                        <>
-                            <FeedBackForm handleAdd={addFeedBack} />
-                            <FeedBackStats feedback={feedback} />
-                            <FeedBackList feedback={feedback} handleDelete={deleteFeedback}/>
-                        </>
-                    }>
-                    </Route>
+        <FeedBackProvider>
+            <Router>
+                <Header />
+                <div className="container">
+                    <Routes>                    
+                        <Route exact path='/' element={
+                            <>
+                                <FeedBackForm handleAdd={addFeedBack} />
+                                <FeedBackStats />
+                                <FeedBackList handleDelete={deleteFeedback}/>
+                            </>
+                        }>
+                        </Route>
 
-                    <Route exact path='/about' element={<AboutPage />} />
-                </Routes>
-                
-                <AboutIconLink />
-            </div>
+                        <Route exact path='/about' element={<AboutPage />} />
+                    </Routes>
+                    
+                    <AboutIconLink />
+                </div>
 
-        </Router>
+            </Router>
+        </FeedBackProvider>
     )
 }
 
