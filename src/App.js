@@ -1,8 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
-import Post from './components/Post'
-import Header from "./components/Header"
+ import Header from "./components/Header"
 import FeedBackList from './components/FeedBackList'
 import FeedBackData from './data/FeedBackData'
 import FeedBackStats from './components/FeedBackStats'
@@ -39,7 +38,6 @@ function App() {
                     </Route>
 
                     <Route exact path='/about' element={<AboutPage />} />
-                    <Route exact path='/post/*' element={<Post />} />
                 </Routes>
                 
                 <AboutIconLink />
